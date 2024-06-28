@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.childhealthcard.presentation.ChildHealthCardEditActivity">
+
+    <RelativeLayout
+        android:id="@+id/child_health_card_edit_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:background="@color/yellow">
+
+        <ImageView
+            android:id="@+id/child_health_card_edit_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/back_24"
+            app:tint="@color/black"
+            tools:ignore="ContentDescription,HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/child_health_card"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/child_health_card_edit_title">
+
+        <EditText
+            android:id="@+id/child_health_card_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="ឈ្មោះកុមារ"
+            android:inputType="text"
+            android:maxLength="100"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_id"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="លេខសម្គាល់"
+            android:inputType="number"
+            android:maxLength="100"
+            android:textColorHint="#546E7A"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="ថ្ងៃទី-ខែ-ឆ្នាំ"
+            android:inputType="date"
+            android:maxLength="100"
+            android:textColorHint="#546E7A"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_father_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="ឈ្មោះឪពុក"
+            android:inputType="text"
+            android:maxLength="100"
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_mother_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="ឈ្មោះម្ដាយ"
+            android:inputType="text"
+            android:maxLength="100"
+            android:textColorHint="#546E7A"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_address"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="អាស័យដា្ឋន"
+            android:inputType="text"
+            android:maxLength="300"
+            android:textColorHint="#546E7A"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_hospital_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="ឈ្មោះមន្ទីរពេទ្យ"
+            android:inputType="text"
+            android:maxLength="150"
+            android:textColorHint="#546E7A"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <EditText
+            android:id="@+id/child_health_card_edit_hospital_address"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:hint="អាស័យដ្ឋានមន្ទីរពេទ្យ"
+            android:inputType="text"
+            android:maxLength="300"
+            android:textColorHint="#546E7A"
+            tools:ignore="Autofill,HardcodedText" />
+
+        <Button
+            android:id="@+id/child_health_card_edit_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="10sp"
+            android:text="រក្សាទុក"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/yellow"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
+
+    </LinearLayout>
+
+</RelativeLayout>

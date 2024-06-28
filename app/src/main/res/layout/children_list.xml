@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/white"
+        android:padding="5dp"
+        tools:ignore="TextSizeCheck,UselessParent">
+
+        <RelativeLayout
+            android:id="@+id/children_list_top_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/children_list_child_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="0001"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/children_list_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/yellow"
+                android:padding="5dp"
+                android:text="01-01-1999"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/children_list_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/children_list_top_row"
+            android:layout_marginStart="10dp"
+            android:text="ឈ្មោះកុមារ"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText,VisualLintOverlap" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <ImageButton
+                android:id="@+id/children_list_edit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                android:contentDescription="edit"
+                android:src="@drawable/edit_32"
+                app:tint="@color/blue"
+                tools:ignore="HardcodedText" />
+
+            <ImageButton
+                android:id="@+id/children_list_delete"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_toEndOf="@+id/children_list_edit"
+                android:background="@color/white"
+                android:contentDescription="delete"
+                android:src="@drawable/delete_32"
+                app:tint="#F44336"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
