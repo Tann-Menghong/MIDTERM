@@ -1,3 +1,12 @@
+---
+title: Tann Menghong & Ouk Sokha Wedding
+emoji: 💍
+colorFrom: pink
+colorTo: yellow
+sdk: static
+pinned: false
+---
+
 # Wedding Invitation Website
 
 A mobile-first, single-page digital wedding invitation (Khmer/English), inspired by the
@@ -92,6 +101,9 @@ Any static host works since there's no build step:
   to its own branch/repo root).
 - **Netlify / Vercel:** drag-and-drop the `website/` folder, or connect the repo and set the
   publish directory to `website`.
+- **Hugging Face Spaces:** create a new Space with the "Static HTML" SDK, then push the
+  contents of this `website/` folder (including this `README.md`, which already has the
+  required `sdk: static` frontmatter) to the Space's git repo as its root.
 
 ## File structure
 
