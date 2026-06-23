@@ -106,11 +106,29 @@
   document.getElementById("contact-links").innerHTML = CONTACT.links
     .map((link) => {
       const isMail = link.href.startsWith("mailto:");
+      const copyBtn = isMail
+        ? `<button type="button" class="copy-btn" data-copy-value="${link.href.replace("mailto:", "").split("?")[0]}" aria-label="Copy email address">⧉</button>`
+        : "";
       return `<li>${link.icon} <a href="${link.href}"${
         isMail ? "" : ' target="_blank" rel="noopener"'
-      }>${link.label}</a></li>`;
+      }>${link.label}</a>${copyBtn}</li>`;
     })
     .join("");
+  document.getElementById("contact-links").addEventListener("click", (e) => {
+    const btn = e.target.closest(".copy-btn");
+    if (!btn) return;
+    const value = btn.dataset.copyValue;
+    const done = () => {
+      showToast("Email address copied to clipboard.", "success");
+      btn.classList.add("copied");
+      setTimeout(() => btn.classList.remove("copied"), 1200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(done).catch(done);
+    } else {
+      done();
+    }
+  });
   document.getElementById("footer-social").innerHTML = CONTACT.links
     .map((link) => {
       const isMail = link.href.startsWith("mailto:");

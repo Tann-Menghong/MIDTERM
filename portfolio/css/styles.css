@@ -611,9 +611,28 @@ section { padding: 96px 0; }
 
 .contact-links li:hover { border-color: var(--accent); transform: translateX(4px); }
 
-.contact-links a { color: var(--text); font-weight: 500; }
+.contact-links a { color: var(--text); font-weight: 500; flex: 1; }
 
 .contact-links a:hover { color: var(--accent); }
+
+.copy-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.copy-btn.copied { color: var(--accent); border-color: var(--accent); transform: scale(0.92); }
 
 form {
   display: grid;
