@@ -189,8 +189,12 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   const backToTop = document.getElementById("back-to-top");
+  const scrollProgress = document.getElementById("scroll-progress");
   window.addEventListener("scroll", () => {
     backToTop.classList.toggle("visible", window.scrollY > 400);
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    scrollProgress.style.width = `${pct}%`;
   });
   backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 })();

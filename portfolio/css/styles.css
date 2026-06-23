@@ -69,6 +69,18 @@ img { max-width: 100%; display: block; }
   padding: 0 24px;
 }
 
+/* Scroll progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--gradient);
+  z-index: 60;
+  transition: width 0.1s ease-out;
+}
+
 /* Navbar */
 .navbar {
   position: sticky;
