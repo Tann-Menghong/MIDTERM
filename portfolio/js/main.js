@@ -66,6 +66,8 @@
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
           if (entry.target.dataset.countTarget) animateCount(entry.target);
+          const fill = entry.target.querySelector("[data-fill-target]");
+          if (fill) requestAnimationFrame(() => { fill.style.width = `${fill.dataset.fillTarget}%`; });
           revealObserver.unobserve(entry.target);
         }
       });
@@ -114,7 +116,7 @@
           <span>${skill.name}</span>
           <span>${skill.level}%</span>
         </div>
-        <div class="skill-bar"><div class="skill-fill" style="width:${skill.level}%"></div></div>
+        <div class="skill-bar"><div class="skill-fill" data-fill-target="${skill.level}" style="width:0%"></div></div>
       </li>`
   ).join("");
   document.querySelectorAll("#skills-list .reveal").forEach((el) => revealObserver.observe(el));
