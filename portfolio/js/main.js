@@ -21,11 +21,15 @@
 
   const navToggle = document.getElementById("nav-toggle");
   const navLinks = document.getElementById("nav-links");
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
+  const navBackdrop = document.getElementById("nav-backdrop");
+  function setNavOpen(open) {
+    navLinks.classList.toggle("open", open);
+    navBackdrop.classList.toggle("visible", open);
+  }
+  navToggle.addEventListener("click", () => setNavOpen(!navLinks.classList.contains("open")));
+  navBackdrop.addEventListener("click", () => setNavOpen(false));
   navLinks.querySelectorAll("a").forEach((link) =>
-    link.addEventListener("click", () => navLinks.classList.remove("open"))
+    link.addEventListener("click", () => setNavOpen(false))
   );
 
   const sections = document.querySelectorAll("main section[id]");
