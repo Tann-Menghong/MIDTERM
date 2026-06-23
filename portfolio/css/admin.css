@@ -192,6 +192,8 @@ body { background: var(--bg); }
 
 .admin-card-head strong { font-size: 0.95rem; }
 
+.admin-card-actions { display: flex; gap: 8px; }
+
 /* Image / avatar upload */
 .admin-avatar-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 

@@ -350,7 +350,10 @@
       <div class="admin-card">
         <div class="admin-card-head">
           <strong>Project ${i + 1}</strong>
-          <button type="button" class="icon-btn" data-proj-remove="${i}" aria-label="Remove">✕</button>
+          <div class="admin-card-actions">
+            <button type="button" class="icon-btn" data-proj-duplicate="${i}" aria-label="Duplicate project" title="Duplicate">⧉</button>
+            <button type="button" class="icon-btn" data-proj-remove="${i}" aria-label="Remove">✕</button>
+          </div>
         </div>
         <div class="admin-field">
           <label>Title</label>
@@ -418,6 +421,15 @@
     wrap.querySelectorAll("[data-proj-remove]").forEach((el) =>
       el.addEventListener("click", (e) => {
         model.PROJECTS.splice(+e.target.dataset.projRemove, 1);
+        renderProjectCards();
+      })
+    );
+    wrap.querySelectorAll("[data-proj-duplicate]").forEach((el) =>
+      el.addEventListener("click", (e) => {
+        const i = +e.target.dataset.projDuplicate;
+        const copy = clone(model.PROJECTS[i]);
+        copy.title = `${copy.title} (copy)`;
+        model.PROJECTS.splice(i + 1, 0, copy);
         renderProjectCards();
       })
     );
