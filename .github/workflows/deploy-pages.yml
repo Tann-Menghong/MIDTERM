@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
     paths:
-      - website/**
       - portfolio/**
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
@@ -27,11 +26,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - name: Assemble combined site
+      - name: Assemble site
         run: |
-          mkdir -p _site/portfolio
-          cp -r website/. _site/
-          cp -r portfolio/. _site/portfolio/
+          mkdir -p _site
+          cp -r portfolio/. _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
