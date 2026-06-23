@@ -287,6 +287,41 @@ textarea:focus-visible {
   50% { transform: rotate(-4deg) translateY(-8px); }
 }
 
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.availability-badge.open { color: #2f9e5d; border-color: color-mix(in srgb, #2f9e5d 35%, var(--border)); }
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.availability-badge.open .availability-dot { animation: dot-pulse 2s ease-in-out infinite; }
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, #2f9e5d 45%, transparent); }
+  50% { box-shadow: 0 0 0 5px color-mix(in srgb, #2f9e5d 0%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .availability-badge.open .availability-dot { animation: none; }
+}
+
 .hero-eyebrow {
   display: inline-block;
   color: var(--accent);

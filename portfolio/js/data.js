@@ -4,6 +4,7 @@ const HERO = {
   lead: "I craft visual identities, marketing collateral and multimedia content — from posters and publications to video editing and live event production. Currently pursuing my MSc in Information Technology at Asia Euro University.",
   avatarInitials: "MT",
   avatarPhoto: "",
+  availability: { open: true, label: "Available for freelance work" },
   stats: [
     { value: "4+", label: "Years of Experience" },
     { value: "MSc IT", label: "In Progress" },

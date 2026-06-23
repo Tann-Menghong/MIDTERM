@@ -164,12 +164,18 @@
         <div id="hero-stats-list" class="admin-repeat"></div>
         <button type="button" class="btn btn-secondary" id="add-stat">+ Add stat</button>
       </div>
+      <div class="admin-field">
+        <label><input type="checkbox" id="f-hero-availability-open" ${model.HERO.availability.open ? "checked" : ""} /> Show availability badge</label>
+        <input type="text" id="f-hero-availability-label" placeholder="Badge text" value="${escapeHtml(model.HERO.availability.label)}" />
+      </div>
     `;
 
     document.getElementById("f-hero-eyebrow").addEventListener("input", (e) => { model.HERO.eyebrow = e.target.value; });
     document.getElementById("f-hero-name").addEventListener("input", (e) => { model.HERO.name = e.target.value; });
     document.getElementById("f-hero-lead").addEventListener("input", (e) => { model.HERO.lead = e.target.value; });
     document.getElementById("f-hero-initials").addEventListener("input", (e) => { model.HERO.avatarInitials = e.target.value; });
+    document.getElementById("f-hero-availability-open").addEventListener("change", (e) => { model.HERO.availability.open = e.target.checked; });
+    document.getElementById("f-hero-availability-label").addEventListener("input", (e) => { model.HERO.availability.label = e.target.value; });
     document.getElementById("f-hero-photo").addEventListener("change", async (e) => {
       const file = e.target.files[0];
       if (!file) return;

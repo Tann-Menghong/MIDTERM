@@ -84,6 +84,13 @@
   heroAvatar.innerHTML = HERO.avatarPhoto
     ? `<img src="${HERO.avatarPhoto}" alt="${HERO.name}" />`
     : HERO.avatarInitials;
+  const availabilityBadge = document.getElementById("availability-badge");
+  if (HERO.availability && HERO.availability.label) {
+    availabilityBadge.classList.toggle("open", !!HERO.availability.open);
+    availabilityBadge.innerHTML = `<span class="availability-dot"></span>${HERO.availability.label}`;
+  } else {
+    availabilityBadge.remove();
+  }
   document.getElementById("hero-eyebrow").textContent = HERO.eyebrow;
   document.getElementById("hero-name").textContent = HERO.name;
   document.getElementById("hero-lead").textContent = HERO.lead;
