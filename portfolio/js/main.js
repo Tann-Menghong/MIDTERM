@@ -190,8 +190,10 @@
 
   const backToTop = document.getElementById("back-to-top");
   const scrollProgress = document.getElementById("scroll-progress");
+  const navbar = document.querySelector(".navbar");
   window.addEventListener("scroll", () => {
     backToTop.classList.toggle("visible", window.scrollY > 400);
+    navbar.classList.toggle("scrolled", window.scrollY > 10);
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
     scrollProgress.style.width = `${pct}%`;
