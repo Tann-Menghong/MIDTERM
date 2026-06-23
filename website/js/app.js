@@ -1,8 +1,8 @@
 // ============ Config ============
-const WEDDING_DATE = new Date('2025-11-23T17:00:00+07:00');
-const WEDDING_TITLE = 'Wedding of Dai Madoeurn & Kang Hechhuy';
-const VENUE_TEXT = 'Phlov Sethey Restaurant, Sen Sok, Phnom Penh';
-const MAPS_URL = 'https://www.google.com/maps?q=Phnom+Penh,Cambodia';
+const WEDDING_DATE = new Date('2026-12-26T17:00:00+07:00');
+const WEDDING_TITLE = 'Wedding of Tann Menghong & Ouk Sokha';
+const VENUE_TEXT = 'Tuol Domnak Village, Cambodia';
+const MAPS_URL = `https://www.google.com/maps?q=${encodeURIComponent('ភូមិទួលដំណាក់, Cambodia')}`;
 
 // ============ Language toggle ============
 function setLang(lang) {

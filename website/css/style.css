@@ -348,6 +348,20 @@ html[data-lang="en"] .knob { left: 16px; }
 .scan-pay { text-align: center; font-style: italic; color: #8a8478; font-size: 13px; margin-bottom: 6px; }
 
 /* ---------- Wishes ---------- */
+.rsvp-label { color: var(--olive); font-weight: 700; font-size: 13px; text-align: center; margin: 0; }
+.rsvp-toggle { display: flex; justify-content: center; gap: 10px; }
+.rsvp-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--olive);
+  color: var(--olive);
+  font-weight: 700;
+  font-size: 13px;
+}
+.rsvp-btn.selected { background: var(--olive); color: #fff; }
 .wish-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
 .wish-form input, .wish-form textarea {
   border: 1px solid #e5d9c9;
@@ -375,6 +389,9 @@ html[data-lang="en"] .knob { left: 16px; }
   padding: 12px 14px;
 }
 .wish-card .wish-name { font-weight: 700; color: var(--olive-dark); font-size: 14px; margin: 0 0 4px; }
+.wish-card .wish-attending { font-size: 11px; font-weight: 700; margin: 0 0 4px; }
+.wish-card .wish-attending.yes { color: var(--olive-dark); }
+.wish-card .wish-attending.no { color: #b5524a; }
 .wish-card .wish-msg { font-size: 13px; color: var(--ink); margin: 0 0 6px; word-wrap: break-word; }
 .wish-card .wish-time { font-size: 11px; color: #9a9384; margin: 0; }
 

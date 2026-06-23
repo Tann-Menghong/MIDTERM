@@ -9,6 +9,7 @@ service cloud.firestore {
                     && request.resource.data.message is string
                     && request.resource.data.message.size() > 0
                     && request.resource.data.message.size() <= 300
+                    && request.resource.data.attending is bool
                     && request.resource.data.createdAt == request.time;
       allow update, delete: if false;
     }
