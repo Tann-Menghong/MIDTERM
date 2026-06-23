@@ -9,9 +9,38 @@
   const gateForm = document.getElementById("gate-form");
   const gateError = document.getElementById("gate-error");
   const saveStatus = document.getElementById("save-status");
+  const unsavedIndicator = document.getElementById("unsaved-indicator");
+  const adminPanels = document.querySelector(".admin-panels");
 
   let model;
   let initialized = false;
+  let dirty = false;
+
+  function markDirty() {
+    dirty = true;
+    unsavedIndicator.classList.remove("hidden");
+  }
+
+  function clearDirty() {
+    dirty = false;
+    unsavedIndicator.classList.add("hidden");
+  }
+
+  // Every data-mutating control (text fields, file inputs, add/remove row
+  // buttons) lives inside .admin-panels, while tab switches and the
+  // save/reset/download/lock buttons live outside it — so this single
+  // delegated listener catches edits without false-positiving on navigation.
+  adminPanels.addEventListener("input", markDirty);
+  adminPanels.addEventListener("change", markDirty);
+  adminPanels.addEventListener("click", (e) => {
+    if (e.target.closest("button")) markDirty();
+  });
+
+  window.addEventListener("beforeunload", (event) => {
+    if (!dirty) return;
+    event.preventDefault();
+    event.returnValue = "";
+  });
 
   function clone(value) {
     return JSON.parse(JSON.stringify(value));
@@ -514,6 +543,7 @@
     try {
       PortfolioStore.saveOverrides(model);
       setSaveStatus("Saved — open or refresh the preview tab to see it.", "success");
+      clearDirty();
     } catch (err) {
       setSaveStatus("Couldn't save — your browser storage is full. Try smaller or fewer images.", "error");
     }
@@ -525,6 +555,7 @@
     model = PortfolioStore.getOriginalDefaults();
     renderAll();
     setSaveStatus("Reset to defaults.", "success");
+    clearDirty();
   });
 
   document.getElementById("download-btn").addEventListener("click", () => {
