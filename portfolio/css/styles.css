@@ -955,8 +955,38 @@ footer {
 }
 
 @media print {
-  .navbar, .hero, #projects, #contact, footer, .back-to-top, .filters, .resume-actions { display: none !important; }
+  :root,
+  [data-theme="dark"] {
+    --bg: #ffffff;
+    --bg-alt: #ffffff;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --text-muted: #44495a;
+    --accent: #4f46e5;
+    --border: #cfd2da;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --gradient: none;
+  }
+  .navbar,
+  .hero,
+  #projects,
+  #contact,
+  footer,
+  .back-to-top,
+  .filters,
+  .resume-actions,
+  .scroll-progress,
+  .skip-link,
+  .nav-backdrop,
+  .toast-container,
+  .lightbox,
+  #scroll-progress { display: none !important; }
   section { padding: 12px 0; }
-  .alt-bg { border: none; }
+  .alt-bg { border: none; background: none; }
   .timeline-item::before, .timeline-item::after { display: none; }
+  .section-tag { background: none; color: #44495a; padding: 0; }
+  .timeline-item { break-inside: avoid; page-break-inside: avoid; }
+  a { color: #0f172a; text-decoration: none; }
 }
