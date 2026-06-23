@@ -43,11 +43,29 @@
   );
   sections.forEach((section) => sectionObserver.observe(section));
 
+  function animateCount(el) {
+    const target = +el.dataset.countTarget;
+    if (Number.isNaN(target)) return;
+    const suffix = el.dataset.countSuffix || "";
+    const valueEl = el.querySelector("strong");
+    if (!valueEl) return;
+    const duration = 900;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      valueEl.textContent = Math.round(target * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
+          if (entry.target.dataset.countTarget) animateCount(entry.target);
           revealObserver.unobserve(entry.target);
         }
       });
@@ -64,8 +82,14 @@
   document.getElementById("hero-name").textContent = HERO.name;
   document.getElementById("hero-lead").textContent = HERO.lead;
   document.getElementById("hero-stats").innerHTML = HERO.stats
-    .map((stat) => `<li><strong>${stat.value}</strong><span>${stat.label}</span></li>`)
+    .map((stat) => {
+      const match = /^(\d+)(.*)$/.exec(stat.value);
+      const countAttrs = match ? ` data-count-target="${match[1]}" data-count-suffix="${match[2]}"` : "";
+      const display = match ? `0${match[2]}` : stat.value;
+      return `<li class="reveal"${countAttrs}><strong>${display}</strong><span>${stat.label}</span></li>`;
+    })
     .join("");
+  document.querySelectorAll("#hero-stats li").forEach((el) => revealObserver.observe(el));
   document.getElementById("footer-name").textContent = HERO.name;
 
   document.getElementById("about-text").innerHTML = ABOUT.paragraphs
