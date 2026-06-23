@@ -165,7 +165,7 @@
       .map(
         (project, i) => `
         <article class="project-card reveal" style="--stagger:${(i % 6) * 70}ms">
-          <img src="${project.image}" alt="${project.title}" loading="lazy" data-lightbox-trigger />
+          <img src="${project.image}" alt="${project.title}" loading="lazy" data-lightbox-trigger onload="this.classList.add('img-loaded')" />
           <button type="button" class="project-zoom" aria-label="View ${project.title} larger">⤢</button>
           <div class="project-body">
             <h3>${project.title}</h3>
