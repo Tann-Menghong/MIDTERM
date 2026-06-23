@@ -156,8 +156,8 @@
     const items = filter === "all" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
     projectsGrid.innerHTML = items
       .map(
-        (project) => `
-        <article class="project-card reveal">
+        (project, i) => `
+        <article class="project-card reveal" style="--stagger:${(i % 6) * 70}ms">
           <img src="${project.image}" alt="${project.title}" loading="lazy" data-lightbox-trigger />
           <button type="button" class="project-zoom" aria-label="View ${project.title} larger">⤢</button>
           <div class="project-body">
