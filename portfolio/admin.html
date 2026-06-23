@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Portfolio Editor</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div id="gate" class="admin-gate">
+    <div class="admin-gate-card">
+      <h1>Portfolio Admin</h1>
+      <p>
+        Enter the access phrase to edit the site's content and photos. Heads up: this
+        is a local content editor, not a secured backend — anyone who reads the page
+        source can find the phrase, and changes are only saved to your own browser
+        until you download and publish a new <code>data.js</code>. It's just a deterrent
+        against casual visitors, not real access control.
+      </p>
+      <form id="gate-form">
+        <input type="password" id="gate-password" placeholder="Access phrase" autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Unlock</button>
+      </form>
+      <p id="gate-error" class="form-status error"></p>
+    </div>
+  </div>
+
+  <div id="admin-app" class="admin-app hidden">
+    <header class="admin-topbar">
+      <div class="admin-topbar-inner">
+        <a href="index.html" class="logo">Menghong<span>.</span><span class="admin-badge">Admin</span></a>
+        <div class="admin-topbar-actions">
+          <a href="index.html" target="_blank" rel="noopener" class="btn btn-secondary">Preview site ↗</a>
+          <button id="reset-btn" class="btn btn-secondary" type="button">Reset to defaults</button>
+          <button id="download-btn" class="btn btn-secondary" type="button">Download data.js</button>
+          <button id="lock-btn" class="btn btn-secondary" type="button">Lock</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-layout">
+      <nav class="admin-tabs">
+        <button class="admin-tab active" data-tab="hero" type="button">Hero</button>
+        <button class="admin-tab" data-tab="about" type="button">About</button>
+        <button class="admin-tab" data-tab="skills" type="button">Skills</button>
+        <button class="admin-tab" data-tab="projects" type="button">Projects</button>
+        <button class="admin-tab" data-tab="resume" type="button">Resume</button>
+        <button class="admin-tab" data-tab="contact" type="button">Contact</button>
+      </nav>
+
+      <main class="admin-panels">
+        <section class="admin-panel active" data-panel="hero" id="panel-hero"></section>
+        <section class="admin-panel" data-panel="about" id="panel-about"></section>
+        <section class="admin-panel" data-panel="skills" id="panel-skills"></section>
+        <section class="admin-panel" data-panel="projects" id="panel-projects"></section>
+        <section class="admin-panel" data-panel="resume" id="panel-resume"></section>
+        <section class="admin-panel" data-panel="contact" id="panel-contact"></section>
+      </main>
+    </div>
+
+    <div class="admin-savebar">
+      <span id="save-status"></span>
+      <button id="save-btn" class="btn btn-primary" type="button">Save changes</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

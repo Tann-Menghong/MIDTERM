@@ -32,32 +32,15 @@
     <section id="home" class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <div class="hero-avatar" aria-hidden="true">MT</div>
-        <p class="hero-eyebrow">Graphic Designer · Multimedia Specialist</p>
-        <h1>Hi, I'm <span>Menghong Tann</span></h1>
-        <p class="hero-lead">
-          I craft visual identities, marketing collateral and multimedia content —
-          from posters and publications to video editing and live event production.
-          Currently pursuing my MSc in Information Technology at Asia Euro University.
-        </p>
+        <div class="hero-avatar" id="hero-avatar" aria-hidden="true"></div>
+        <p class="hero-eyebrow" id="hero-eyebrow"></p>
+        <h1>Hi, I'm <span id="hero-name"></span></h1>
+        <p class="hero-lead" id="hero-lead"></p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View My Work</a>
           <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
-        <ul class="hero-stats">
-          <li>
-            <strong>4+</strong>
-            <span>Years of Experience</span>
-          </li>
-          <li>
-            <strong>MSc IT</strong>
-            <span>In Progress</span>
-          </li>
-          <li>
-            <strong>AEU</strong>
-            <span>Communications Office</span>
-          </li>
-        </ul>
+        <ul class="hero-stats" id="hero-stats"></ul>
       </div>
     </section>
 
@@ -68,19 +51,7 @@
           <h2>Who I Am</h2>
         </div>
         <div class="about-grid">
-          <div class="about-intro reveal">
-            <p>
-              I'm a graphic designer and multimedia specialist at Asia Euro University's
-              Printing &amp; Digital Communications Office, where I've spent the past few
-              years producing posters, publications, branding and video for university
-              events and campaigns.
-            </p>
-            <p>
-              I'm equally at home behind a camera, in a livestream control room, or in a
-              page-layout grid. Alongside design, I'm completing my MSc in Information
-              Technology — bridging visual craft with the technical side of digital media.
-            </p>
-          </div>
+          <div class="about-intro reveal" id="about-text"></div>
           <div class="skills-block reveal">
             <h3 class="skills-title">Core Skills</h3>
             <ul id="skills-list" class="skills-list"></ul>
@@ -125,14 +96,8 @@
         </div>
         <div class="contact-wrap">
           <div class="contact-info reveal">
-            <p>
-              Have a project in mind, a question about my work, or just want to say hi?
-              Send me a message and I'll get back to you.
-            </p>
-            <ul class="contact-links">
-              <li>✉️ <a href="mailto:menghong@aeu.edu.kh">menghong@aeu.edu.kh</a></li>
-              <li>💻 <a href="https://github.com/tann-menghong/midterm" target="_blank" rel="noopener">github.com/tann-menghong/midterm</a></li>
-            </ul>
+            <p id="contact-intro"></p>
+            <ul class="contact-links" id="contact-links"></ul>
           </div>
           <form id="contact-form" class="reveal" novalidate>
             <div class="field">
@@ -157,13 +122,15 @@
 
   <footer>
     <div class="container">
-      <p>&copy; <span id="year"></span> Menghong Tann. Built with HTML, CSS &amp; JavaScript.</p>
+      <p>&copy; <span id="year"></span> <span id="footer-name"></span>. Built with HTML, CSS &amp; JavaScript.</p>
+      <p class="admin-link"><a href="admin.html">Admin</a></p>
     </div>
   </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
 
   <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
