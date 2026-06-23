@@ -48,6 +48,32 @@
   );
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
+  const heroAvatar = document.getElementById("hero-avatar");
+  heroAvatar.innerHTML = HERO.avatarPhoto
+    ? `<img src="${HERO.avatarPhoto}" alt="${HERO.name}" />`
+    : HERO.avatarInitials;
+  document.getElementById("hero-eyebrow").textContent = HERO.eyebrow;
+  document.getElementById("hero-name").textContent = HERO.name;
+  document.getElementById("hero-lead").textContent = HERO.lead;
+  document.getElementById("hero-stats").innerHTML = HERO.stats
+    .map((stat) => `<li><strong>${stat.value}</strong><span>${stat.label}</span></li>`)
+    .join("");
+  document.getElementById("footer-name").textContent = HERO.name;
+
+  document.getElementById("about-text").innerHTML = ABOUT.paragraphs
+    .map((p) => `<p>${p}</p>`)
+    .join("");
+
+  document.getElementById("contact-intro").textContent = CONTACT.intro;
+  document.getElementById("contact-links").innerHTML = CONTACT.links
+    .map((link) => {
+      const isMail = link.href.startsWith("mailto:");
+      return `<li>${link.icon} <a href="${link.href}"${
+        isMail ? "" : ' target="_blank" rel="noopener"'
+      }>${link.label}</a></li>`;
+    })
+    .join("");
+
   const skillsList = document.getElementById("skills-list");
   skillsList.innerHTML = SKILLS.map(
     (skill) => `
@@ -141,9 +167,11 @@
       return;
     }
 
+    const mailLink = CONTACT.links.find((link) => link.href.startsWith("mailto:"));
+    const contactEmail = mailLink ? mailLink.href.replace("mailto:", "").split("?")[0] : "";
     const subject = encodeURIComponent(`Portfolio contact from ${name}`);
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:menghong@aeu.edu.kh?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
     formStatus.textContent = "Opening your email client to send the message…";
     formStatus.className = "form-status success";

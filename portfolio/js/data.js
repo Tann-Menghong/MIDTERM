@@ -1,3 +1,23 @@
+const HERO = {
+  eyebrow: "Graphic Designer · Multimedia Specialist",
+  name: "Menghong Tann",
+  lead: "I craft visual identities, marketing collateral and multimedia content — from posters and publications to video editing and live event production. Currently pursuing my MSc in Information Technology at Asia Euro University.",
+  avatarInitials: "MT",
+  avatarPhoto: "",
+  stats: [
+    { value: "4+", label: "Years of Experience" },
+    { value: "MSc IT", label: "In Progress" },
+    { value: "AEU", label: "Communications Office" },
+  ],
+};
+
+const ABOUT = {
+  paragraphs: [
+    "I'm a graphic designer and multimedia specialist at Asia Euro University's Printing & Digital Communications Office, where I've spent the past few years producing posters, publications, branding and video for university events and campaigns.",
+    "I'm equally at home behind a camera, in a livestream control room, or in a page-layout grid. Alongside design, I'm completing my MSc in Information Technology — bridging visual craft with the technical side of digital media.",
+  ],
+};
+
 const SKILLS = [
   { name: "Graphic Design (Photoshop & Illustrator)", level: 90 },
   { name: "Video Editing & Production", level: 88 },
@@ -75,6 +95,19 @@ const RESUME = {
         "Designed branding and print collateral, including certificates, ID cards, signage and merchandise.",
         "Produced monthly newsletters and social media graphics for the university's digital communications.",
       ],
+    },
+  ],
+};
+
+const CONTACT = {
+  intro:
+    "Have a project in mind, a question about my work, or just want to say hi? Send me a message and I'll get back to you.",
+  links: [
+    { icon: "✉️", label: "menghong@aeu.edu.kh", href: "mailto:menghong@aeu.edu.kh" },
+    {
+      icon: "💻",
+      label: "github.com/tann-menghong/midterm",
+      href: "https://github.com/tann-menghong/midterm",
     },
   ],
 };
