@@ -4,11 +4,19 @@
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme) root.setAttribute("data-theme", savedTheme);
 
+  function syncThemeIcon() {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  }
+  syncThemeIcon();
+
   themeToggle.addEventListener("click", () => {
     const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
     const next = current === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
+    syncThemeIcon();
   });
 
   const navToggle = document.getElementById("nav-toggle");

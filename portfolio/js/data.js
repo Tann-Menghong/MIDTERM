@@ -76,7 +76,7 @@ const RESUME = {
   education: [
     {
       title: "Master of Science in Information Technology (MSIT)",
-      org: "American University (AEU)",
+      org: "Asia Euro University (AEU)",
       period: "2024 — Present",
       details:
         "Coursework in Android development, software engineering and database systems.",
