@@ -207,8 +207,26 @@
 
   document.getElementById("print-resume").addEventListener("click", () => window.print());
 
+  const toastContainer = document.getElementById("toast-container");
+  function showToast(message, kind) {
+    const toast = document.createElement("div");
+    toast.className = `toast${kind ? " " + kind : ""}`;
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add("show"));
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 250);
+    }, 3200);
+  }
+
   const form = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
+  function setFormStatus(text, kind) {
+    formStatus.textContent = text;
+    formStatus.className = `form-status ${kind}`;
+    showToast(text, kind);
+  }
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const name = form.name.value.trim();
@@ -217,13 +235,11 @@
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name || !email || !message) {
-      formStatus.textContent = "Please fill in every field before sending.";
-      formStatus.className = "form-status error";
+      setFormStatus("Please fill in every field before sending.", "error");
       return;
     }
     if (!emailPattern.test(email)) {
-      formStatus.textContent = "Please enter a valid email address.";
-      formStatus.className = "form-status error";
+      setFormStatus("Please enter a valid email address.", "error");
       return;
     }
 
@@ -233,8 +249,7 @@
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
-    formStatus.textContent = "Opening your email client to send the message…";
-    formStatus.className = "form-status success";
+    setFormStatus("Opening your email client to send the message…", "success");
     form.reset();
   });
 

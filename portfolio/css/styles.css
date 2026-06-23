@@ -696,6 +696,40 @@ footer {
 
 .lightbox-close:hover { background: rgba(255, 255, 255, 0.22); transform: translateY(-2px); }
 
+/* Toasts */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 22px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.88rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.show { opacity: 1; transform: translateY(0); }
+
+.toast.success { border-color: color-mix(in srgb, #2f9e5d 45%, var(--border)); color: #2f9e5d; }
+
+.toast.error { border-color: color-mix(in srgb, #e5484d 45%, var(--border)); color: #e5484d; }
+
 /* Reveal animation */
 .reveal {
   opacity: 0;
