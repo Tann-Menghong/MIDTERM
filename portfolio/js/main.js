@@ -294,6 +294,7 @@
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
     scrollProgress.style.width = `${pct}%`;
+    backToTop.style.setProperty("--btt-progress", pct);
   });
   backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 })();
