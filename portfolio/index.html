@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menghong Tann — Portfolio</title>
-  <meta name="description" content="Personal portfolio of Menghong Tann — MSIT student and Android developer." />
+  <title>Menghong Tann — Graphic Designer & Multimedia Specialist</title>
+  <meta name="description" content="Portfolio of Menghong Tann — graphic designer and multimedia specialist crafting visual identities, publications, video and live event production." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -27,18 +30,34 @@
 
   <main>
     <section id="home" class="hero">
-      <div class="container">
-        <p class="hero-eyebrow">MSIT Student · Android Developer</p>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-avatar" aria-hidden="true">MT</div>
+        <p class="hero-eyebrow">Graphic Designer · Multimedia Specialist</p>
         <h1>Hi, I'm <span>Menghong Tann</span></h1>
-        <p>
-          I build Android applications and web experiences, with a focus on clean
-          architecture, persistence layers and practical UI. Currently pursuing my
-          Master of Science in IT at the American University.
+        <p class="hero-lead">
+          I craft visual identities, marketing collateral and multimedia content —
+          from posters and publications to video editing and live event production.
+          Currently pursuing my MSc in Information Technology at Asia Euro University.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#projects" class="btn btn-primary">View My Work</a>
           <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
+        <ul class="hero-stats">
+          <li>
+            <strong>4+</strong>
+            <span>Years of Experience</span>
+          </li>
+          <li>
+            <strong>MSc IT</strong>
+            <span>In Progress</span>
+          </li>
+          <li>
+            <strong>AEU</strong>
+            <span>Communications Office</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -49,20 +68,23 @@
           <h2>Who I Am</h2>
         </div>
         <div class="about-grid">
-          <div class="reveal">
+          <div class="about-intro reveal">
             <p>
-              I'm a Master of Science in Information Technology student at the American
-              University (AEU), focused on Android development. My coursework covers
-              SQLite-backed persistence, custom adapters and list rendering, and
-              event-driven UI design.
+              I'm a graphic designer and multimedia specialist at Asia Euro University's
+              Printing &amp; Digital Communications Office, where I've spent the past few
+              years producing posters, publications, branding and video for university
+              events and campaigns.
             </p>
             <p>
-              Outside of coursework, I enjoy turning small practice exercises into
-              polished, reusable components — and building web tools like this
-              portfolio to present them.
+              I'm equally at home behind a camera, in a livestream control room, or in a
+              page-layout grid. Alongside design, I'm completing my MSc in Information
+              Technology — bridging visual craft with the technical side of digital media.
             </p>
           </div>
-          <ul id="skills-list" class="skills-list"></ul>
+          <div class="skills-block reveal">
+            <h3 class="skills-title">Core Skills</h3>
+            <ul id="skills-list" class="skills-list"></ul>
+          </div>
         </div>
       </div>
     </section>
