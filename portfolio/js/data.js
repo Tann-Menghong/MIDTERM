@@ -1,12 +1,12 @@
 const SKILLS = [
-  { name: "Java", level: 90 },
-  { name: "Android SDK", level: 85 },
-  { name: "SQLite", level: 75 },
-  { name: "XML Layouts", level: 80 },
-  { name: "HTML / CSS / JS", level: 85 },
-  { name: "Git & GitHub", level: 80 },
-  { name: "Gradle", level: 65 },
-  { name: "OOP & MVC", level: 80 },
+  { name: "Graphic Design (Photoshop & Illustrator)", level: 90 },
+  { name: "Video Editing & Production", level: 88 },
+  { name: "Print & Publication Layout", level: 85 },
+  { name: "Event Photography", level: 82 },
+  { name: "Branding & Visual Identity", level: 80 },
+  { name: "Livestreaming & Event Broadcasting", level: 78 },
+  { name: "HTML / CSS / JS", level: 75 },
+  { name: "Git & GitHub", level: 70 },
 ];
 
 const PROJECTS = [
@@ -64,11 +64,17 @@ const RESUME = {
   ],
   experience: [
     {
-      title: "Android Development Practices",
-      org: "MSIT Coursework",
-      period: "2024 — Present",
-      details:
-        "Built a set of Android exercises covering SQLite persistence, custom adapters, list views and event handling.",
+      title: "Graphic Designer & Multimedia Officer",
+      org: "Asia Euro University (AEU) — Printing & Digital Communications Office",
+      period: "Jun 2022 — Present",
+      details: [
+        "Designed posters, banners and digital graphics for university events, holidays and academic announcements.",
+        "Produced booklets, leaflets and brochures for student recruitment and admissions campaigns.",
+        "Edited video content and operated livestreaming setups for ceremonies, seminars and conferences.",
+        "Covered campus events as event photographer, delivering edited photo sets for university publications.",
+        "Designed branding and print collateral, including certificates, ID cards, signage and merchandise.",
+        "Produced monthly newsletters and social media graphics for the university's digital communications.",
+      ],
     },
   ],
 };

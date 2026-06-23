@@ -103,7 +103,13 @@
           <div class="timeline-content">
             <h4>${entry.title}</h4>
             <span class="timeline-org">${entry.org}</span>
-            <p>${entry.details}</p>
+            ${
+              Array.isArray(entry.details)
+                ? `<ul class="timeline-details">${entry.details
+                    .map((point) => `<li>${point}</li>`)
+                    .join("")}</ul>`
+                : `<p>${entry.details}</p>`
+            }
           </div>
         </div>`
         )
