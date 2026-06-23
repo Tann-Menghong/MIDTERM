@@ -63,6 +63,22 @@ img { max-width: 100%; display: block; }
 
 ::selection { background: var(--accent); color: #fff; }
 
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 16px;
+  z-index: 100;
+  background: var(--gradient);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible { top: 16px; outline: none; }
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
