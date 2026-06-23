@@ -128,7 +128,8 @@
       .map(
         (project) => `
         <article class="project-card reveal">
-          <img src="${project.image}" alt="${project.title}" loading="lazy" />
+          <img src="${project.image}" alt="${project.title}" loading="lazy" data-lightbox-trigger />
+          <button type="button" class="project-zoom" aria-label="View ${project.title} larger">⤢</button>
           <div class="project-body">
             <h3>${project.title}</h3>
             <p>${project.description}</p>
@@ -149,6 +150,31 @@
       btn.classList.add("active");
       renderProjects(btn.dataset.filter);
     });
+  });
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    lightbox.classList.add("hidden");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  }
+  projectsGrid.addEventListener("click", (e) => {
+    const trigger = e.target.closest("[data-lightbox-trigger], .project-zoom");
+    if (!trigger) return;
+    const img = trigger.closest(".project-card").querySelector("img");
+    openLightbox(img.src, img.alt);
+  });
+  document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !lightbox.classList.contains("hidden")) closeLightbox();
   });
 
   const timeline = document.getElementById("resume-timeline");
