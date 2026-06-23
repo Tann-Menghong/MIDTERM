@@ -203,12 +203,18 @@ img { max-width: 100%; display: block; }
 
 .hero-bg {
   position: absolute;
-  inset: 0;
+  inset: -10%;
   pointer-events: none;
   background:
     radial-gradient(40% 50% at 50% 0%, var(--ring), transparent 70%),
     radial-gradient(30% 40% at 80% 20%, rgba(124, 58, 237, 0.10), transparent 70%),
     radial-gradient(30% 40% at 15% 30%, rgba(79, 70, 229, 0.10), transparent 70%);
+  animation: hero-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(1.08); }
 }
 
 .hero-inner { position: relative; }
@@ -633,6 +639,7 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
+  .hero-bg { animation: none; }
 }
 
 /* Responsive */
