@@ -916,6 +916,8 @@ footer {
   html { scroll-behavior: auto; }
   .hero-bg { animation: none; }
   .hero-avatar { animation: none; }
+  .lightbox { animation: none; }
+  .skill-fill { transition: none; }
 }
 
 /* Responsive */

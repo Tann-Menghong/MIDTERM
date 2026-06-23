@@ -1,4 +1,5 @@
 (function () {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const root = document.documentElement;
   const themeToggle = document.getElementById("theme-toggle");
   const savedTheme = localStorage.getItem("theme");
@@ -53,6 +54,10 @@
     const suffix = el.dataset.countSuffix || "";
     const valueEl = el.querySelector("strong");
     if (!valueEl) return;
+    if (prefersReducedMotion) {
+      valueEl.textContent = target + suffix;
+      return;
+    }
     const duration = 900;
     const start = performance.now();
     function tick(now) {
@@ -303,5 +308,7 @@
     scrollProgress.style.width = `${pct}%`;
     backToTop.style.setProperty("--btt-progress", pct);
   });
-  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  backToTop.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" })
+  );
 })();
