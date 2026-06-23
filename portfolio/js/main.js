@@ -111,6 +111,14 @@
       }>${link.label}</a></li>`;
     })
     .join("");
+  document.getElementById("footer-social").innerHTML = CONTACT.links
+    .map((link) => {
+      const isMail = link.href.startsWith("mailto:");
+      return `<li><a href="${link.href}" aria-label="${link.label}"${
+        isMail ? "" : ' target="_blank" rel="noopener"'
+      }>${link.icon}</a></li>`;
+    })
+    .join("");
 
   const skillsList = document.getElementById("skills-list");
   skillsList.innerHTML = SKILLS.map(
