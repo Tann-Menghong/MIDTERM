@@ -4,6 +4,7 @@ const HERO = {
   lead: "I craft visual identities, marketing collateral and multimedia content — from posters and publications to video editing and live event production. Currently pursuing my MSc in Information Technology at Asia Euro University.",
   avatarInitials: "MT",
   avatarPhoto: "",
+  availability: { open: true, label: "Available for freelance work" },
   stats: [
     { value: "4+", label: "Years of Experience" },
     { value: "MSc IT", label: "In Progress" },
@@ -76,7 +77,7 @@ const RESUME = {
   education: [
     {
       title: "Master of Science in Information Technology (MSIT)",
-      org: "American University (AEU)",
+      org: "Asia Euro University (AEU)",
       period: "2024 — Present",
       details:
         "Coursework in Android development, software engineering and database systems.",

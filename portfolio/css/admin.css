@@ -192,6 +192,8 @@ body { background: var(--bg); }
 
 .admin-card-head strong { font-size: 0.95rem; }
 
+.admin-card-actions { display: flex; gap: 8px; }
+
 /* Image / avatar upload */
 .admin-avatar-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 
@@ -249,11 +251,21 @@ input[type="file"] { font-size: 0.85rem; color: var(--text-muted); }
   gap: 16px;
 }
 
+.unsaved-indicator {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--danger);
+}
+
 #save-status { font-size: 0.88rem; color: var(--text-muted); }
 
-#save-status.success { color: #2f9e5d; }
+#save-status.success { color: var(--success); }
 
-#save-status.error { color: #e5484d; }
+#save-status.error { color: var(--danger); }
 
 @media (max-width: 760px) {
   .admin-layout { grid-template-columns: 1fr; }

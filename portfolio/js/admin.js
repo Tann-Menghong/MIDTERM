@@ -9,9 +9,38 @@
   const gateForm = document.getElementById("gate-form");
   const gateError = document.getElementById("gate-error");
   const saveStatus = document.getElementById("save-status");
+  const unsavedIndicator = document.getElementById("unsaved-indicator");
+  const adminPanels = document.querySelector(".admin-panels");
 
   let model;
   let initialized = false;
+  let dirty = false;
+
+  function markDirty() {
+    dirty = true;
+    unsavedIndicator.classList.remove("hidden");
+  }
+
+  function clearDirty() {
+    dirty = false;
+    unsavedIndicator.classList.add("hidden");
+  }
+
+  // Every data-mutating control (text fields, file inputs, add/remove row
+  // buttons) lives inside .admin-panels, while tab switches and the
+  // save/reset/download/lock buttons live outside it — so this single
+  // delegated listener catches edits without false-positiving on navigation.
+  adminPanels.addEventListener("input", markDirty);
+  adminPanels.addEventListener("change", markDirty);
+  adminPanels.addEventListener("click", (e) => {
+    if (e.target.closest("button")) markDirty();
+  });
+
+  window.addEventListener("beforeunload", (event) => {
+    if (!dirty) return;
+    event.preventDefault();
+    event.returnValue = "";
+  });
 
   function clone(value) {
     return JSON.parse(JSON.stringify(value));
@@ -164,12 +193,18 @@
         <div id="hero-stats-list" class="admin-repeat"></div>
         <button type="button" class="btn btn-secondary" id="add-stat">+ Add stat</button>
       </div>
+      <div class="admin-field">
+        <label><input type="checkbox" id="f-hero-availability-open" ${model.HERO.availability.open ? "checked" : ""} /> Show availability badge</label>
+        <input type="text" id="f-hero-availability-label" placeholder="Badge text" value="${escapeHtml(model.HERO.availability.label)}" />
+      </div>
     `;
 
     document.getElementById("f-hero-eyebrow").addEventListener("input", (e) => { model.HERO.eyebrow = e.target.value; });
     document.getElementById("f-hero-name").addEventListener("input", (e) => { model.HERO.name = e.target.value; });
     document.getElementById("f-hero-lead").addEventListener("input", (e) => { model.HERO.lead = e.target.value; });
     document.getElementById("f-hero-initials").addEventListener("input", (e) => { model.HERO.avatarInitials = e.target.value; });
+    document.getElementById("f-hero-availability-open").addEventListener("change", (e) => { model.HERO.availability.open = e.target.checked; });
+    document.getElementById("f-hero-availability-label").addEventListener("input", (e) => { model.HERO.availability.label = e.target.value; });
     document.getElementById("f-hero-photo").addEventListener("change", async (e) => {
       const file = e.target.files[0];
       if (!file) return;
@@ -315,7 +350,10 @@
       <div class="admin-card">
         <div class="admin-card-head">
           <strong>Project ${i + 1}</strong>
-          <button type="button" class="icon-btn" data-proj-remove="${i}" aria-label="Remove">✕</button>
+          <div class="admin-card-actions">
+            <button type="button" class="icon-btn" data-proj-duplicate="${i}" aria-label="Duplicate project" title="Duplicate">⧉</button>
+            <button type="button" class="icon-btn" data-proj-remove="${i}" aria-label="Remove">✕</button>
+          </div>
         </div>
         <div class="admin-field">
           <label>Title</label>
@@ -383,6 +421,15 @@
     wrap.querySelectorAll("[data-proj-remove]").forEach((el) =>
       el.addEventListener("click", (e) => {
         model.PROJECTS.splice(+e.target.dataset.projRemove, 1);
+        renderProjectCards();
+      })
+    );
+    wrap.querySelectorAll("[data-proj-duplicate]").forEach((el) =>
+      el.addEventListener("click", (e) => {
+        const i = +e.target.dataset.projDuplicate;
+        const copy = clone(model.PROJECTS[i]);
+        copy.title = `${copy.title} (copy)`;
+        model.PROJECTS.splice(i + 1, 0, copy);
         renderProjectCards();
       })
     );
@@ -508,6 +555,7 @@
     try {
       PortfolioStore.saveOverrides(model);
       setSaveStatus("Saved — open or refresh the preview tab to see it.", "success");
+      clearDirty();
     } catch (err) {
       setSaveStatus("Couldn't save — your browser storage is full. Try smaller or fewer images.", "error");
     }
@@ -519,6 +567,7 @@
     model = PortfolioStore.getOriginalDefaults();
     renderAll();
     setSaveStatus("Reset to defaults.", "success");
+    clearDirty();
   });
 
   document.getElementById("download-btn").addEventListener("click", () => {
