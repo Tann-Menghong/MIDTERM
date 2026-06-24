@@ -71,6 +71,70 @@ const PROJECTS = [
     tech: ["HTML", "CSS", "JavaScript"],
     image: "assets/img/activities.png",
   },
+  {
+    title: "AEU 20th Anniversary Commemorative Book",
+    category: "design",
+    description:
+      "Led design and layout of Asia Euro University's 20th-anniversary commemorative book — cover concepts, photo curation across every faculty, and print-ready production over a multi-month publishing cycle.",
+    tech: ["Adobe InDesign", "Photoshop", "Print Production"],
+    image: "assets/img/aeu-20th-anniversary-book.svg",
+  },
+  {
+    title: "Admissions Booklet & Leaflet Series",
+    category: "design",
+    description:
+      "Redesigned AEU's flagship recruitment booklet and leaflet every academic year from 2024 to 2027, reworking layout, page count and trim size each cycle while keeping every faculty's content current.",
+    tech: ["Adobe InDesign", "Illustrator", "Layout Design"],
+    image: "assets/img/admissions-booklet-leaflet.svg",
+  },
+  {
+    title: "AEU VTI Brand Identity",
+    category: "branding",
+    description:
+      "Designed and refined the logo and visual identity for AEU's Vocational Training Institute through multiple stakeholder revision rounds.",
+    tech: ["Illustrator", "Brand Identity"],
+    image: "assets/img/aeu-vti-branding.svg",
+  },
+  {
+    title: "Youth21: Urgent Helper App",
+    category: "branding",
+    description:
+      "Designed the UX concept for \"Urgent Helper,\" an emergency-assistance app pitched in the national Youth21 entrepreneurship competition, and edited the team's pitch and promotional videos through the semi-final round.",
+    tech: ["UX Concept Design", "Premiere Pro", "Pitch Video"],
+    image: "assets/img/youth21-urgent-helper.svg",
+  },
+  {
+    title: "Cisco Networking Academy Conference",
+    category: "video",
+    description:
+      "Produced the full event branding package — posters, stage backdrop, signage — for AEU's annual regional Cisco Networking Academy conference, then ran the live Facebook broadcast of the event.",
+    tech: ["Live Streaming", "Event Branding", "vMix"],
+    image: "assets/img/cisco-conference.svg",
+  },
+  {
+    title: "Khmer New Year Live Broadcast",
+    category: "video",
+    description:
+      "Ran end-to-end live broadcast production — multi-camera switching, audio mixing and on-screen graphics — for the university's annual Khmer New Year festival, streamed live to Facebook.",
+    tech: ["Livestreaming", "Audio Mixing", "vMix"],
+    image: "assets/img/khmer-new-year-broadcast.svg",
+  },
+  {
+    title: "Event Branding & Large-Format Signage",
+    category: "branding",
+    description:
+      "Designed backdrops, banners and roll-ups up to 14m wide for graduations, thesis defenses, alumni reunions and campus installations across multiple academic years.",
+    tech: ["Large-format Print", "Illustrator"],
+    image: "assets/img/event-signage.svg",
+  },
+  {
+    title: "AEU Monthly Newsletter & Bulletin",
+    category: "design",
+    description:
+      "Ongoing design and layout for Asia Euro University's recurring monthly newsletter and bulletin, distilling campus news into a consistent visual format issue after issue.",
+    tech: ["Editorial Design", "Photoshop"],
+    image: "assets/img/aeu-newsletter.svg",
+  },
 ];
 
 const RESUME = {
