@@ -100,11 +100,11 @@
   document.getElementById("hero-name").textContent = HERO.name;
   document.getElementById("hero-lead").textContent = HERO.lead;
   document.getElementById("hero-stats").innerHTML = HERO.stats
-    .map((stat) => {
+    .map((stat, i) => {
       const match = /^(\d+)(.*)$/.exec(stat.value);
       const countAttrs = match ? ` data-count-target="${match[1]}" data-count-suffix="${match[2]}"` : "";
       const display = match ? `0${match[2]}` : stat.value;
-      return `<li class="reveal"${countAttrs}><strong>${display}</strong><span>${stat.label}</span></li>`;
+      return `<li class="reveal tilt-3d" style="--stagger:${i * 80}ms"${countAttrs}><strong>${display}</strong><span>${stat.label}</span></li>`;
     })
     .join("");
   document.querySelectorAll("#hero-stats li").forEach((el) => revealObserver.observe(el));
@@ -152,8 +152,8 @@
 
   const skillsList = document.getElementById("skills-list");
   skillsList.innerHTML = SKILLS.map(
-    (skill) => `
-      <li class="skill reveal">
+    (skill, i) => `
+      <li class="skill reveal tilt-3d" style="--stagger:${i * 60}ms">
         <div class="skill-head">
           <span>${skill.name}</span>
           <span>${skill.level}%</span>
@@ -169,7 +169,7 @@
     projectsGrid.innerHTML = items
       .map(
         (project, i) => `
-        <article class="project-card reveal" style="--stagger:${(i % 6) * 70}ms">
+        <article class="project-card reveal tilt-3d" style="--stagger:${(i % 6) * 70}ms">
           <img src="${project.image}" alt="${project.title}" loading="lazy" data-lightbox-trigger onload="this.classList.add('img-loaded')" />
           <button type="button" class="project-zoom" aria-label="View ${project.title} larger">⤢</button>
           <div class="project-body">
