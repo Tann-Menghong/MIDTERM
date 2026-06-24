@@ -941,6 +941,79 @@ footer {
   .skill-fill { transition: none; }
 }
 
+/* ---------- Interactive 3D layer: cursor, pointer-tilt, magnetic CTAs, hero particles ---------- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--accent);
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+}
+
+.cursor-ring.is-active { width: 52px; height: 52px; background: var(--ring); }
+
+html.fx-cursor,
+html.fx-cursor a,
+html.fx-cursor button,
+html.fx-cursor input,
+html.fx-cursor textarea { cursor: none; }
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring { display: none; }
+  html.fx-cursor, html.fx-cursor a, html.fx-cursor button, html.fx-cursor input, html.fx-cursor textarea { cursor: auto; }
+}
+
+.hero-particles { position: absolute; inset: 0; z-index: 0; }
+
+/* Pointer-tilt + glare for project/stat cards, the skills block and the
+   avatar. --mx/--my (0-1, set on pointermove) position the glare highlight;
+   overflow:hidden clips it to each element's own rounded corners. */
+.tilt-interactive {
+  transform-style: preserve-3d;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.tilt-interactive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(circle at calc(var(--mx, 0.5) * 100%) calc(var(--my, 0.5) * 100%), rgba(255, 255, 255, 0.35), transparent 60%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .tilt-interactive::before {
+  background: radial-gradient(circle at calc(var(--mx, 0.5) * 100%) calc(var(--my, 0.5) * 100%), rgba(255, 255, 255, 0.14), transparent 60%);
+}
+
+.tilt-interactive.tilt-hovering::before { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-particles { display: none; }
+}
+
 /* Responsive */
 @media (max-width: 860px) {
   .about-grid,
